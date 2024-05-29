@@ -5,19 +5,17 @@ build-backend = "hatchling.build"
 [project]
 name = "ticket-to-ride"
 dynamic = ["version"]
-description = ''
+description = 'Python implementation of Ticket to Ride board game'
 readme = "README.md"
-requires-python = ">=3.8"
+requires-python = ">=3.10"
 license = "MIT"
-keywords = []
+keywords = ["ticket to ride", "board game", "graph"]
 authors = [
   { name = "Yury Fedotov", email = "yury_fedotov@mckinsey.com" },
 ]
 classifiers = [
-  "Development Status :: 4 - Beta",
+  "Development Status :: 1 - Planning",
   "Programming Language :: Python",
-  "Programming Language :: Python :: 3.8",
-  "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
   "Programming Language :: Python :: 3.12",
