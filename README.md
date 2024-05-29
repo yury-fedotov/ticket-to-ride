@@ -11,7 +11,7 @@ Python package for analyzing arbitrary [Ticket to Ride](https://www.daysofwonder
 > the trademark is owned by Asmodee North America.
 > All rights to the original game and its elements are owned by their respective holders.
 >
-> For more information about the game, please visit the official Days of Wonder website: https://www.daysofwonder.com.
+> For more information about the game, please visit the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 
 -----
 
