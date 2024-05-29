@@ -8,7 +8,7 @@ Python package for analyzing arbitrary [Ticket to Ride](https://www.daysofwonder
 > game rules or other game-related artifacts.
 >
 > "Ticket to Ride" was designed by Alan R. Moon and released by Days of Wonder. To the best of author's knowledge,
-> the trademark is owned by Asmodee North America.
+> the trademark is owned by Days of Wonder, Inc.
 > All rights to the original game and its elements are owned by their respective holders.
 >
 > For more information about the game, please visit the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
