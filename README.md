@@ -3,7 +3,7 @@
 Python package for analyzing arbitrary [Ticket to Ride](https://www.daysofwonder.com/ticket-to-ride/) maps and simulating game sessions.
 
 > [!IMPORTANT]
-> This project is implemented exclusively in learning purposes and assumes no commercial use.
+> This project is implemented **exclusively in learning purposes and assumes no commercial use**.
 > Neither Yury Fedotov nor organizations he is affilicated with claim any rights to the "Ticket to Ride" trademark,
 > game rules or other game-related artifacts.
 >
