@@ -12,6 +12,7 @@ from collections import defaultdict
 import matplotlib.pyplot as plt
 import networkx as nx
 
+from .city import City
 from .color import Color
 from .route import Route
 
@@ -66,6 +67,10 @@ class Map:
         plt.axis("off")
         plt.tight_layout()
         plt.show()
+
+    def calculate_centrality(self: tp.Self) -> tp.Dict[City, float]:
+        """Calculate centrality measure of all involved cities."""
+        return nx.betweenness_centrality(self.graph, weight="length")
 
     def _get_edges_by_color(self: tp.Self) -> tp.Dict[Color, tp.List[tp.Any]]:
         edges_by_color: tp.Dict[Color, tp.List[tp.Any]] = defaultdict(list)
