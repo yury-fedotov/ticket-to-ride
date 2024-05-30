@@ -40,6 +40,7 @@ _CITY_NAMES = frozenset((
     "Dallas",
     "Oklahoma City",
     "Santa Fe",
+    "Chicago",
     "Denver",
     "Kansas City",
     "Saint Louis",
