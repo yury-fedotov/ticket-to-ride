@@ -7,3 +7,4 @@
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """Provides default component definitions for the North America game version."""
 from .cities import default_cities
+from .routes import default_routes
