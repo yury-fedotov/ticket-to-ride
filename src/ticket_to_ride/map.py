@@ -22,7 +22,7 @@ class Map:
         Args:
             routes: Routes to form a map.
         """
-        self.graph: nx.Graph = nx.Graph()
+        self.graph: nx.Graph = nx.MultiGraph()
         for route in routes:
             route.add_as_edge(self.graph)
         self._check_has_no_bridges()

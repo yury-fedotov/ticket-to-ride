@@ -5,21 +5,4 @@
 # All rights to the original game and its elements are owned by their respective holders.
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
-"""Color machinery to represent key property of routes and cars."""
-from enum import Enum
-
-
-class Color(Enum):
-    """Collection of colors used in the game."""
-    # Those are specific colors to distinguish cars and routes
-    PINK = "#FFC0CB"
-    WHITE = "#FFFFFF"
-    BLUE = "#0000FF"
-    YELLOW = "#FFFF00"
-    ORANGE = "#FFA500"
-    BLACK = "#000000"
-    RED = "#FF0000"
-    GREEN = "#008000"
-    # Those are system colors to define neutral route and locomotive car
-    NEUTRAL = "#808080"
-    LOCOMOTIVE = "#CF9FFF"
+"""Provides default component definitions for common game versions."""
