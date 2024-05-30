@@ -163,7 +163,6 @@ default_routes = (
     Route(cities=(default_cities["Kansas City"], default_cities["Omaha"]), length=1, color=Color.NEUTRAL),
     Route(cities=(default_cities["Winnipeg"], default_cities["Duluth"]), length=4, color=Color.BLACK),
     Route(cities=(default_cities["Winnipeg"], default_cities["Sault Ste Marie"]), length=6, color=Color.NEUTRAL),
-    Route(cities=(default_cities["Winnipeg"], default_cities["Calgary"]), length=6, color=Color.WHITE),
     Route(cities=(default_cities["Winnipeg"], default_cities["Helena"]), length=4, color=Color.BLUE),
     Route(cities=(default_cities["Little Rock"], default_cities["Saint Louis"]), length=2, color=Color.NEUTRAL),
     Route(cities=(default_cities["Little Rock"], default_cities["Nashville"]), length=3, color=Color.WHITE),
