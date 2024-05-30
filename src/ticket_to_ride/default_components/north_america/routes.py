@@ -6,8 +6,9 @@
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """Default routes for the North America game version."""
+from ticket_to_ride import Color, Route
+
 from .cities import default_cities
-from ticket_to_ride import Route, Color
 
 default_routes = (
     Route(cities=(default_cities["Vancouver"], default_cities["Seattle"]), length=1, color=Color.NEUTRAL),

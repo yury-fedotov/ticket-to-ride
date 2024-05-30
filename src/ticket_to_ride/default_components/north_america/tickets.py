@@ -6,8 +6,9 @@
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """Default destination tickets for the North America game version."""
-from .cities import default_cities
 from ticket_to_ride import Ticket
+
+from .cities import default_cities
 
 default_tickets = frozenset((
     Ticket(cities=(default_cities["Los Angeles"], default_cities["New York"]), value=21),
