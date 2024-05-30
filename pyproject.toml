@@ -25,6 +25,7 @@ classifiers = [
 dependencies = [
   "pydantic~=2.7",
   "networkx~=3.2",
+  "matplotlib",
 ]
 
 [project.optional-dependencies]
