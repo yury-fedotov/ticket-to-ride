@@ -11,7 +11,7 @@ Python package for analyzing arbitrary [Ticket to Ride](https://www.daysofwonder
 > the trademark is owned by Days of Wonder, Inc.
 > All rights to the original game and its elements are owned by their respective holders.
 >
-> For more information about the game, please visit the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
+> For more information about the game, please visit the [official Days of Wonder website](https://www.daysofwonder.com/ticket-to-ride/).
 
 -----
 
@@ -25,6 +25,6 @@ pip install ticket-to-ride
 
 This `ticket-to-ride` Python package is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
 
-Please note that the project is implemented exclusively in learning purposes and assumes no commercial use.
+Please note that the project is implemented exclusively for learning purposes and assumes no commercial use.
 All rights to the original game and its elements are owned by their respective holders.
 See [the legal disclaimer](#ticket-to-ride) for more details.
