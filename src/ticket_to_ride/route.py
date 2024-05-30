@@ -12,7 +12,7 @@ class Route(BaseModel):
     length: int = Field(ge=1)
     color: Color
 
-    def add_as_edge(self, graph: networkx.Graph) -> None:
+    def add_as_edge(self: tp.Self, graph: networkx.Graph) -> None:
         graph.add_edge(
             self.cities[0],
             self.cities[1],
