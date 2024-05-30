@@ -4,7 +4,7 @@ Python package for analyzing arbitrary [Ticket to Ride](https://www.daysofwonder
 
 > [!IMPORTANT]
 > This project is implemented **exclusively in learning purposes and assumes no commercial use**.
-> Neither Yury Fedotov nor organizations he is affilicated with claim any rights to the "Ticket to Ride" trademark,
+> Neither Yury Fedotov nor organizations he is affiliated with claim any rights to the "Ticket to Ride" trademark,
 > game rules or other game-related artifacts.
 >
 > "Ticket to Ride" was designed by Alan R. Moon and released by Days of Wonder. To the best of author's knowledge,
