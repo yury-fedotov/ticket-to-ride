@@ -11,7 +11,15 @@ from enum import Enum
 
 class Color(Enum):
     """Collection of colors used in the game."""
+    # Those are specific colors to distinguish cars and routes
     PINK = "#FFC0CB"
     WHITE = "#FFFFFF"
     BLUE = "#0000FF"
+    YELLOW = "#FFFF00"
+    ORANGE = "#FFA500"
+    BLACK = "#000000"
+    RED = "#FF0000"
+    GREEN = "#008000"
+    # Those are system colors to define neutral route and locomotive car
     NEUTRAL = "#808080"
+    LOCOMOTIVE = "#CF9FFF"
