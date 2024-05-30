@@ -5,9 +5,7 @@
 # All rights to the original game and its elements are owned by their respective holders.
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
-"""
-Map machinery to represent game board.
-"""
+"""Map machinery to represent game board."""
 import typing as tp
 
 import networkx as nx
@@ -16,8 +14,14 @@ from .route import Route
 
 
 class Map:
+    """Representation of a game board."""
 
     def __init__(self: tp.Self, routes: tp.Iterable[Route]) -> None:
+        """Constructor.
+
+        Args:
+            routes: Routes to form a map.
+        """
         self.graph: nx.Graph = nx.Graph()
         for route in routes:
             route.add_as_edge(self.graph)

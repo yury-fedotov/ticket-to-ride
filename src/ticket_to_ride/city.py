@@ -5,13 +5,12 @@
 # All rights to the original game and its elements are owned by their respective holders.
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
-"""
-City machinery to represent nodes of the board.
-"""
+"""City machinery to represent nodes of the board."""
 from pydantic import BaseModel, ConfigDict, Field
 
 
 class City(BaseModel):
+    """City machinery to represent nodes of the board."""
     model_config = ConfigDict(frozen=True)
 
     name: str = Field(min_length=1)

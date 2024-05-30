@@ -5,13 +5,12 @@
 # All rights to the original game and its elements are owned by their respective holders.
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
-"""
-Color machinery to represent key property of routes and cars.
-"""
+"""Color machinery to represent key property of routes and cars."""
 from enum import Enum
 
 
 class Color(Enum):
+    """Collection of colors used in the game."""
     PINK = "#FFC0CB"
     WHITE = "#FFFFFF"
     BLUE = "#0000FF"
