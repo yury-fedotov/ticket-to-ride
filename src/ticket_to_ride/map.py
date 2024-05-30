@@ -1,8 +1,11 @@
-from dataclasses import dataclass
 import typing as tp
 from .route import Route
+import networkx as nx
 
 
-@dataclass
-class Map:
-    routes: tp.Collection[Route]
+class Map(nx.Graph):
+
+    def __init__(self, routes: tp.Iterable[Route]):
+        super().__init__()
+        for route in routes:
+            route.add_as_edge(self)
