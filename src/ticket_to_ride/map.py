@@ -15,9 +15,15 @@ import networkx as nx
 from .route import Route
 
 
-class Map(nx.Graph):
+class Map:
 
     def __init__(self: tp.Self, routes: tp.Iterable[Route]) -> None:
-        super().__init__()
+        self.graph: nx.Graph = nx.Graph()
         for route in routes:
-            route.add_as_edge(self)
+            route.add_as_edge(self.graph)
+        self._check_has_no_bridges()
+
+    def _check_has_no_bridges(self: tp.Self) -> None:
+        bridges = frozenset(nx.bridges(self.graph))
+        if bridges:
+            raise ValueError(f"Cannot initialize a {self.__class__.__name__} with bridges: {bridges}.")
