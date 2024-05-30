@@ -5,9 +5,7 @@
 # All rights to the original game and its elements are owned by their respective holders.
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
-"""
-Tests for map machinery.
-"""
+"""Tests for map machinery."""
 import pytest
 from ticket_to_ride import City, Map, Route
 
