@@ -30,7 +30,7 @@ jobs:
         python -m pip install ".[dev]"
     - name: Lint with ruff
       run: |
-        ruff check .
+        ruff check --output-format=github .
     - name: Run static type checker
       run: |
         mypy .
