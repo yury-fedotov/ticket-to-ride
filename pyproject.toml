@@ -22,7 +22,17 @@ classifiers = [
   "Programming Language :: Python :: Implementation :: CPython",
   "Programming Language :: Python :: Implementation :: PyPy",
 ]
-dependencies = []
+dependencies = [
+  "pydantic~=2.7",
+  "networkx~=3.2",
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff~=0.4",
+  "mypy>=1.0.0",
+  "types-networkx~=3.2",
+]
 
 [project.urls]
 Documentation = "https://github.com/Yury Fedotov/ticket-to-ride#readme"

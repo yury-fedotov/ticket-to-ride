@@ -6,9 +6,12 @@
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """
-Python package for analyzing arbitrary Ticket to Ride maps and simulating game sessions.
+Color machinery to represent key property of routes and cars.
 """
-from .city import City
-from .color import Color
-from .map import Map
-from .route import Route
+from enum import Enum
+
+
+class Color(Enum):
+    PINK = "#FFC0CB"
+    WHITE = "#FFFFFF"
+    BLUE = "#0000FF"

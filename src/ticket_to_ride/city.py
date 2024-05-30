@@ -6,9 +6,12 @@
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """
-Python package for analyzing arbitrary Ticket to Ride maps and simulating game sessions.
+City machinery to represent nodes of the board.
 """
-from .city import City
-from .color import Color
-from .map import Map
-from .route import Route
+from pydantic import BaseModel, ConfigDict, Field
+
+
+class City(BaseModel):
+    model_config = ConfigDict(frozen=True)
+
+    name: str = Field(min_length=1)

@@ -6,9 +6,26 @@
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """
-Python package for analyzing arbitrary Ticket to Ride maps and simulating game sessions.
+Route machinery to represent routes between cities.
 """
+import typing as tp
+
+import networkx
+from pydantic import BaseModel, Field
+
 from .city import City
 from .color import Color
-from .map import Map
-from .route import Route
+
+
+class Route(BaseModel):
+    cities: tp.Tuple[City, City]
+    length: int = Field(ge=1)
+    color: Color
+
+    def add_as_edge(self: tp.Self, graph: networkx.Graph) -> None:
+        graph.add_edge(
+            self.cities[0],
+            self.cities[1],
+            length=self.length,
+            color=self.color,
+        )

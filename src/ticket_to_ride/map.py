@@ -6,9 +6,18 @@
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """
-Python package for analyzing arbitrary Ticket to Ride maps and simulating game sessions.
+Map machinery to represent game board.
 """
-from .city import City
-from .color import Color
-from .map import Map
+import typing as tp
+
+import networkx as nx
+
 from .route import Route
+
+
+class Map(nx.Graph):
+
+    def __init__(self: tp.Self, routes: tp.Iterable[Route]) -> None:
+        super().__init__()
+        for route in routes:
+            route.add_as_edge(self)

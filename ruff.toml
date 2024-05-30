@@ -1,0 +1,21 @@
+line-length = 120
+
+[lint]
+select = [
+    "E", # Pycodestyle
+    "F", # Pyflakes
+    "I", # Isort
+    "N", # Naming
+    "COM", # Commas
+    "T", # Print and debugger statements
+    "ANN", # Type annotations
+    "A", # Builtins shadowing
+    "Q", # Quotes
+    "RET", # Return statements
+    "SIM", # Pieces known to be simplifiable
+    "ERA", # Commented out code
+    "PL", # Pylint
+]
+
+[lint.per-file-ignores]
+"__init__.py" = ["F401"]
