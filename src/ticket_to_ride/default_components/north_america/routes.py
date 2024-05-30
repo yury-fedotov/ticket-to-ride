@@ -11,10 +11,12 @@ from ticket_to_ride import Route, Color
 
 default_routes = (
     Route(cities=(default_cities["Vancouver"], default_cities["Seattle"]), length=1, color=Color.NEUTRAL),
+    Route(cities=(default_cities["Vancouver"], default_cities["Seattle"]), length=1, color=Color.NEUTRAL),
     Route(cities=(default_cities["Vancouver"], default_cities["Calgary"]), length=3, color=Color.NEUTRAL),
     Route(cities=(default_cities["Seattle"], default_cities["Portland"]), length=1, color=Color.NEUTRAL),
     Route(cities=(default_cities["Seattle"], default_cities["Portland"]), length=1, color=Color.NEUTRAL),
     Route(cities=(default_cities["Seattle"], default_cities["Helena"]), length=6, color=Color.YELLOW),
+    Route(cities=(default_cities["Seattle"], default_cities["Calgary"]), length=4, color=Color.NEUTRAL),
     Route(cities=(default_cities["Portland"], default_cities["San Francisco"]), length=5, color=Color.GREEN),
     Route(cities=(default_cities["Portland"], default_cities["San Francisco"]), length=5, color=Color.PINK),
     Route(cities=(default_cities["Portland"], default_cities["Salt Lake City"]), length=6, color=Color.BLUE),
