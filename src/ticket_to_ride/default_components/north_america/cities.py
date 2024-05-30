@@ -16,7 +16,7 @@ _CITY_NAMES = frozenset((
     "Vancouver",
     "Calgary",
     "Winnipeg",
-    "Sault St. Marie",
+    "Sault Ste. Marie",
     "Montreal",
     "Boston",
     "New York",
@@ -42,6 +42,7 @@ _CITY_NAMES = frozenset((
     "Santa Fe",
     "Denver",
     "Kansas City",
+    "Saint Louis",
     "Omaha",
 ))
 
