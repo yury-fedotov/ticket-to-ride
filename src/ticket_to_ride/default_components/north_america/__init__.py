@@ -5,10 +5,5 @@
 # All rights to the original game and its elements are owned by their respective holders.
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
-"""Python package for analyzing arbitrary Ticket to Ride maps and simulating game sessions."""
-from .car import Car
-from .city import City
-from .color import Color
-from .map import Map
-from .route import Route
-from .ticket import Ticket
+"""Provides default component definitions for the North America game version."""
+from .cities import default_cities
