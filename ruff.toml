@@ -15,7 +15,12 @@ select = [
     "SIM", # Pieces known to be simplifiable
     "ERA", # Commented out code
     "PL", # Pylint
+    "D", # Docstrings
 ]
 
+[lint.pydocstyle]
+convention = "google"
+
 [lint.per-file-ignores]
-"__init__.py" = ["F401"]
+"__init__.py" = ["F401"] # Allow unused imports to expose objects.
+"__about__.py" = ["D"] # Do not require docstring in this module.
