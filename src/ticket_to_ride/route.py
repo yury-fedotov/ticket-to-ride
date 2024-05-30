@@ -1,9 +1,10 @@
-import networkx
-
-from .color import Color
-from .city import City
-from pydantic import BaseModel, Field
 import typing as tp
+
+import networkx
+from pydantic import BaseModel, Field
+
+from .city import City
+from .color import Color
 
 
 class Route(BaseModel):

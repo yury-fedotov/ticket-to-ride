@@ -1,6 +1,8 @@
 import typing as tp
-from .route import Route
+
 import networkx as nx
+
+from .route import Route
 
 
 class Map(nx.Graph):
