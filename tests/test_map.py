@@ -6,24 +6,20 @@
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """
-Map machinery to represent game board.
+Tests for map machinery.
 """
-import typing as tp
-
-import networkx as nx
-
-from .route import Route
+import pytest
+from ticket_to_ride import City, Map, Route
 
 
-class Map:
-
-    def __init__(self: tp.Self, routes: tp.Iterable[Route]) -> None:
-        self.graph: nx.Graph = nx.Graph()
-        for route in routes:
-            route.add_as_edge(self.graph)
-        self._check_has_no_bridges()
-
-    def _check_has_no_bridges(self: tp.Self) -> None:
-        bridges = frozenset(nx.bridges(self.graph))
-        if bridges:
-            raise ValueError(f"Cannot initialize a {self.__class__.__name__} with bridges: {bridges}.")
+def test_cannot_initialize_with_bridges() -> None:
+    """Test that a map cannot be initialized if routes imply bridges."""
+    routes_with_implicit_bridge = (
+        Route(cities=(City(name="a"), City(name="c"))),
+        Route(cities=(City(name="b"), City(name="c"))),
+        Route(cities=(City(name="c"), City(name="x"))),
+        Route(cities=(City(name="x"), City(name="y"))),
+        Route(cities=(City(name="x"), City(name="z"))),
+    )
+    with pytest.raises(ValueError, match="bridges"):
+        Map(routes_with_implicit_bridge)
