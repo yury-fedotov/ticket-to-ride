@@ -37,8 +37,15 @@ class Map:
             route.add_as_edge(self.graph)
         self._check_is_suitable()
 
-    def visualize(self: tp.Self) -> None:
-        """Visualize self as a graph figure similar to actual game board."""
+    def visualize(self: tp.Self, node_size: int = 1400) -> None:
+        """Visualize self as a graph figure similar to actual game board.
+
+        Args:
+            node_size: Size of nodes to display.
+
+        Returns:
+            None, just plt.show()s the map.
+        """
         plt.figure(figsize=(12, 12))
 
         # Resolve positions.
@@ -53,7 +60,7 @@ class Map:
         nx.draw_networkx_nodes(
             self.graph,
             pos,
-            node_size=1400,
+            node_size=node_size,
             node_color=node_colors,  # type: ignore[arg-type]
             cmap="Reds",
             edgecolors="black",
@@ -78,6 +85,7 @@ class Map:
                 alpha=0.7,
                 edge_color=color.value,
                 style="dashed",
+                node_size=node_size,
             )
         edge_labels = nx.get_edge_attributes(self.graph, name="length")
         nx.draw_networkx_edge_labels(self.graph, pos, edge_labels)
