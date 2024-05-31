@@ -35,6 +35,10 @@ dev = [
   "types-networkx~=3.2",
   "pytest",
 ]
+docs = [
+  "mkdocs-material",
+  "mkdocstrings[python]",
+]
 
 [project.urls]
 Documentation = "https://github.com/Yury Fedotov/ticket-to-ride#readme"
