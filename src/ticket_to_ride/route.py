@@ -37,3 +37,19 @@ class Route(BaseModel):
             length=self.length,
             color=self.color,
         )
+
+    @property
+    def involved_cities(self: tp.Self) -> tp.FrozenSet[City]:
+        """Get cities involved in a route."""
+        return frozenset(self.cities)
+
+    def __eq__(self: tp.Self, other: tp.Any) -> bool:  # noqa: ANN401
+        """Check if two routes are equivalent."""
+        if isinstance(other, Route):
+            conditions = (
+                self.involved_cities == other.involved_cities,
+                self.length == other.length,
+                self.color == other.color,
+            )
+            return all(conditions)
+        return False
