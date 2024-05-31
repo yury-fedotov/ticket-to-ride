@@ -16,6 +16,8 @@ from .city import City
 from .color import Color
 from .route import Route
 
+_TEdgeTupleWithData = tp.Tuple[City, City, tp.Dict[str, tp.Any]]
+
 
 class Map:
     """Representation of a game board."""
@@ -104,7 +106,22 @@ class Map:
         """Calculate centrality measure of all involved cities."""
         return nx.betweenness_centrality(self.graph, weight="length")
 
-    def _get_edges_by_color(self: tp.Self) -> tp.Dict[Color, tp.List[tp.Any]]:
+    def _get_edges_by_neighbor_pair(self: tp.Self) -> tp.Dict[tp.FrozenSet[City], tp.List[_TEdgeTupleWithData]]:
+        """Get a mapping from neighbor pair to a collection of edges connecting it."""
+        edges_by_pair = defaultdict(list)
+        for (u, v, ddict) in self.graph.edges(data=True):
+            pair = ddict["route_object"].involved_cities
+            edges_by_pair[pair].append((u, v, ddict))
+        return edges_by_pair
+
+    def _get_routes_count_by_neighbor_pair(self: tp.Self) -> tp.Dict[tp.FrozenSet[City], int]:
+        """Get a mapping from neighbor pair to the number of routes connecting them."""
+        return {
+            pair: len(edges)
+            for pair, edges in self._get_edges_by_neighbor_pair().items()
+        }
+
+    def _get_edges_by_color(self: tp.Self) -> tp.Dict[Color, tp.List[_TEdgeTupleWithData]]:
         edges_by_color: tp.Dict[Color, tp.List[tp.Any]] = defaultdict(list)
         for (u, v, ddict) in self.graph.edges(data=True):
             color: Color = ddict["color"]
