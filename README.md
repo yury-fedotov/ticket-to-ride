@@ -1,6 +1,6 @@
 # Ticket to Ride
 
-Python package for analyzing arbitrary [Ticket to Ride](https://www.daysofwonder.com/ticket-to-ride/) maps and simulating game sessions.
+A python package for creating and analyzing arbitrary [Ticket to Ride](https://www.daysofwonder.com/ticket-to-ride/) maps, learning graph theory along the way
 
 > [!IMPORTANT]
 > This project is implemented **exclusively for learning purposes and assumes no commercial use**.
@@ -15,16 +15,10 @@ Python package for analyzing arbitrary [Ticket to Ride](https://www.daysofwonder
 
 -----
 
-## Installation
-
-```console
-pip install ticket-to-ride
-```
-
 ## License
 
 This `ticket-to-ride` Python package is distributed under the terms of the [MIT](https://spdx.org/licenses/MIT.html) license.
 
 Please note that the project is implemented exclusively for learning purposes and assumes no commercial use.
 All rights to the original game and its elements are owned by their respective holders.
-See [the legal disclaimer](#ticket-to-ride) for more details.
+See [the legal disclaimer](./docs/legal_disclaimer.md) for more details.
