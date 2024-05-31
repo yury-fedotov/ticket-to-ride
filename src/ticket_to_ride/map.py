@@ -39,12 +39,24 @@ class Map:
         pos = nx.spring_layout(self.graph, seed=42)
 
         # Draw nodes.
-        nx.draw_networkx_nodes(self.graph, pos, node_size=1200, node_color="#FFF", edgecolors="black")
+        centralities = self.calculate_centrality()
+        node_colors = tuple(
+            centralities.get(city, 0)
+            for city in self.graph
+        )
+        nx.draw_networkx_nodes(
+            self.graph,
+            pos,
+            node_size=1400,
+            node_color=node_colors,
+            cmap="Reds",
+            edgecolors="black",
+        )
         nx.draw_networkx_labels(
             self.graph,
             pos,
             labels={n: n.name for n in self.graph},
-            font_size=7,
+            font_size=6,
             font_family="sans-serif",
             font_weight="bold",
         )
@@ -56,7 +68,7 @@ class Map:
                 self.graph,
                 pos,
                 edgelist=edges,
-                width=2,
+                width=4,
                 alpha=0.7,
                 edge_color=color.value,
                 style="dashed",
