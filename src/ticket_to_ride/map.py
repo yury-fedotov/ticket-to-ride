@@ -29,7 +29,7 @@ class Map:
         self.graph: nx.Graph = nx.MultiGraph()
         for route in routes:
             route.add_as_edge(self.graph)
-        self._check_has_no_bridges()
+        self._check_is_suitable()
 
     def visualize(self: tp.Self) -> None:
         """Visualize self as a graph figure similar to actual game board."""
@@ -48,7 +48,7 @@ class Map:
             self.graph,
             pos,
             node_size=1400,
-            node_color=node_colors,
+            node_color=node_colors,  # type: ignore[arg-type]
             cmap="Reds",
             edgecolors="black",
         )
@@ -91,7 +91,19 @@ class Map:
             edges_by_color[color].append((u, v))  # TODO: persist all edge info?
         return edges_by_color  # TODO: make values tuples for safety?
 
+    def _check_is_suitable(self: tp.Self) -> None:
+        """Check that self is suitable for the Ticket to Ride game."""
+        self._check_has_no_bridges()
+        self._check_is_planar()
+
     def _check_has_no_bridges(self: tp.Self) -> None:
+        """Check that the underlying graph has no bridges."""
         bridges = frozenset(nx.bridges(self.graph))
         if bridges:
             raise ValueError(f"Cannot initialize a {self.__class__.__name__} with bridges: {bridges}.")
+
+    def _check_is_planar(self: tp.Self) -> None:
+        """Check that the underlying graph is planar."""
+        is_planar = nx.is_planar(self.graph)
+        if not is_planar:
+            raise ValueError(f"Cannot initialize a {self.__class__.__name__} with non-planar graph.")
