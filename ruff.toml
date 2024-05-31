@@ -16,10 +16,15 @@ select = [
     "ERA", # Commented out code
     "PL", # Pylint
     "D", # Docstrings
+    "PT", # Pytest
 ]
 
 [lint.pydocstyle]
 convention = "google"
+
+[lint.flake8-pytest-style]
+parametrize-values-type = "tuple"
+parametrize-values-row-type = "tuple"
 
 [lint.per-file-ignores]
 "__init__.py" = ["F401"] # Allow unused imports to expose objects.

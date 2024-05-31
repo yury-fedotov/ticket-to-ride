@@ -10,7 +10,7 @@ import pytest
 from ticket_to_ride import City, Route
 
 
-@pytest.mark.parametrize("one,another,should_be_equal", (
+@pytest.mark.parametrize(("one", "another", "should_be_equal"), (
     (
         Route(cities=(City(name="a"), City(name="b"))),
         Route(cities=(City(name="a"), City(name="b"))),
