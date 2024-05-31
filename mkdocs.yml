@@ -1,4 +1,6 @@
 site_name: Ticket to Ride
+plugins:
+  - mkdocstrings
 theme:
   name: material
   features:
