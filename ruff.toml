@@ -17,7 +17,7 @@ select = [
     "PL", # Pylint
     "D", # Docstrings
     "PT", # Pytest
-    "ICN",
+    "ICN", # Imports convention
 ]
 
 [lint.pydocstyle]
