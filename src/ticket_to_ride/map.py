@@ -20,12 +20,18 @@ from .route import Route
 class Map:
     """Representation of a game board."""
 
-    def __init__(self: tp.Self, routes: tp.Iterable[Route]) -> None:
+    def __init__(
+        self: tp.Self,
+        routes: tp.Iterable[Route],
+        name: str = "Anonymous",
+    ) -> None:
         """Constructor.
 
         Args:
+            name: The name of the map, e.g. "North America".
             routes: Routes to form a map.
         """
+        self.name = name
         self.graph: nx.Graph = nx.MultiGraph()
         for route in routes:
             route.add_as_edge(self.graph)
@@ -107,3 +113,9 @@ class Map:
         is_planar = nx.is_planar(self.graph)
         if not is_planar:
             raise ValueError(f"Cannot initialize a {self.__class__.__name__} with non-planar graph.")
+
+    def __str__(self: tp.Self) -> str:
+        """Return readable string representation of self."""
+        number_of_cities = self.graph.number_of_nodes()
+        number_of_routes = self.graph.number_of_edges()
+        return f"{self.name} map with {number_of_cities} cities and {number_of_routes} routes."
