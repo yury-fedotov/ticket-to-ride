@@ -1,6 +1,6 @@
 # Ticket to Ride
 
-Python package for analyzing arbitrary [Ticket to Ride](https://www.daysofwonder.com/ticket-to-ride/) maps and simulating game sessions.
+A python package for creating and analyzing arbitrary [Ticket to Ride](https://www.daysofwonder.com/ticket-to-ride/) maps.
 
 > [!IMPORTANT]
 > This project is implemented **exclusively for learning purposes and assumes no commercial use**.

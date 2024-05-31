@@ -1,4 +1,4 @@
-# About
+# Overview
 
 A python package for creating and analyzing arbitrary [Ticket to Ride](https://www.daysofwonder.com/ticket-to-ride/) maps.
 
@@ -6,36 +6,36 @@ A python package for creating and analyzing arbitrary [Ticket to Ride](https://w
 
 <div class="grid cards" markdown>
 
--   :material-clock-fast:{ .lg .middle } __Set up in 5 minutes__
+-   :material-map:{ .lg .middle } __Create arbitrary maps__
 
     ---
 
-    Follow the installation guide and get up and running in minutes.
-
-    [:octicons-arrow-right-24: Installation guide](installation.md)
-
--   :fontawesome-brands-markdown:{ .lg .middle } __Create arbitrary maps__
-
-    ---
-
-    Initialize maps of any size and route set as long as they satisfy the game requirements.
+    Initialize maps of any size and route set as long as they satisfy game requirements
 
     [:octicons-arrow-right-24: Initializing a map](#)
 
--   :material-format-font:{ .lg .middle } __Made to measure__
+-   :material-chart-bar:{ .lg .middle } __Perform network analysis__
 
     ---
 
-    Change the colors, fonts, language, icons, logo and more with a few lines
+    Visualize maps and study network properties such as centrality and connectivity
 
-    [:octicons-arrow-right-24: Customization](#)
+    [:octicons-arrow-right-24: Analysing a map](#)
 
--   :material-scale-balance:{ .lg .middle } __Open Source, MIT__
+-   :material-graph-outline:{ .lg .middle } __Learn graph theory__
 
     ---
 
-    Material for MkDocs is licensed under MIT and available on [GitHub]
+    Played Ticket to Ride but haven't heard of graph theory? Learn its basic in this entertaining context
 
-    [:octicons-arrow-right-24: License](#)
+    [:octicons-arrow-right-24: Graph theory in Ticket to Ride](#)
+
+-   :octicons-law-24:{ .lg .middle } __No commercial use__
+
+    ---
+
+    All rights to the original game and its elements are owned by their respective holders, such as Days of Wonder Inc.
+
+    [:octicons-arrow-right-24: Legal disclaimer](legal_disclaimer.md)
 
 </div>
