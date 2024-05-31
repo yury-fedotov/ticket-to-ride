@@ -33,8 +33,7 @@ class Route(BaseModel):
             None: Modifies the graph passed as an argument in place.
         """
         graph.add_edge(
-            self.cities[0],
-            self.cities[1],
+            *self.cities,
             length=self.length,
             color=self.color,
         )
