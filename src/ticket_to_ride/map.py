@@ -108,7 +108,7 @@ class Map:
         edges_by_color: tp.Dict[Color, tp.List[tp.Any]] = defaultdict(list)
         for (u, v, ddict) in self.graph.edges(data=True):
             color: Color = ddict["color"]
-            edges_by_color[color].append((u, v))  # TODO: persist all edge info?
+            edges_by_color[color].append((u, v, ddict))
         return edges_by_color  # TODO: make values tuples for safety?
 
     def _check_is_suitable(self: tp.Self) -> None:
