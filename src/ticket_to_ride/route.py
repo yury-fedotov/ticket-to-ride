@@ -23,6 +23,25 @@ class Route(BaseModel):
     length: int = Field(ge=1, default=1)
     color: Color = Field(default=Color.NEUTRAL)
 
+    def __eq__(self: tp.Self, other: tp.Any) -> bool:  # noqa: ANN401
+        """Check if two routes are equivalent."""
+        if isinstance(other, Route):
+            conditions = (
+                self.involved_cities == other.involved_cities,
+                self.length == other.length,
+                self.color == other.color,
+            )
+            return all(conditions)
+        return False
+
+    @property
+    def involved_cities(self: tp.Self) -> tp.FrozenSet[City]:
+        """Get cities involved in a route.
+
+        TODO: Move to __post_init__ since value in not changed along lifecycle?
+        """
+        return frozenset(self.cities)
+
     def add_as_edge(self: tp.Self, graph: nx.Graph) -> None:
         """Add self as an edge on a given graph.
 
@@ -37,19 +56,3 @@ class Route(BaseModel):
             length=self.length,
             color=self.color,
         )
-
-    @property
-    def involved_cities(self: tp.Self) -> tp.FrozenSet[City]:
-        """Get cities involved in a route."""
-        return frozenset(self.cities)
-
-    def __eq__(self: tp.Self, other: tp.Any) -> bool:  # noqa: ANN401
-        """Check if two routes are equivalent."""
-        if isinstance(other, Route):
-            conditions = (
-                self.involved_cities == other.involved_cities,
-                self.length == other.length,
-                self.color == other.color,
-            )
-            return all(conditions)
-        return False

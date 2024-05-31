@@ -37,6 +37,12 @@ class Map:
             route.add_as_edge(self.graph)
         self._check_is_suitable()
 
+    def __str__(self: tp.Self) -> str:
+        """Return readable string representation of self."""
+        number_of_cities = self.graph.number_of_nodes()
+        number_of_routes = self.graph.number_of_edges()
+        return f"{self.name} map with {number_of_cities} cities and {number_of_routes} routes."
+
     def visualize(self: tp.Self, node_size: int = 1400) -> None:
         """Visualize self as a graph figure similar to actual game board.
 
@@ -121,9 +127,3 @@ class Map:
         is_planar = nx.is_planar(self.graph)
         if not is_planar:
             raise ValueError(f"Cannot initialize a {self.__class__.__name__} with non-planar graph.")
-
-    def __str__(self: tp.Self) -> str:
-        """Return readable string representation of self."""
-        number_of_cities = self.graph.number_of_nodes()
-        number_of_routes = self.graph.number_of_edges()
-        return f"{self.name} map with {number_of_cities} cities and {number_of_routes} routes."
