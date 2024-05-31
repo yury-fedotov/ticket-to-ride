@@ -1,6 +1,6 @@
 # Overview
 
-A python package for creating and analyzing arbitrary [Ticket to Ride](https://www.daysofwonder.com/ticket-to-ride/) maps.
+A python package for creating and analyzing arbitrary [Ticket to Ride](https://www.daysofwonder.com/ticket-to-ride/) maps, learning graph theory along the way.
 
 ## Features
 
