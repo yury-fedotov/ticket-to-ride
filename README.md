@@ -2,6 +2,12 @@
 
 A python package for creating and analyzing arbitrary [Ticket to Ride](https://www.daysofwonder.com/ticket-to-ride/) maps, learning graph theory along the way
 
+<div align="center" markdown="1">
+
+<a href="https://yury-fedotov.github.io/ticket-to-ride/" target="_blank">Documentation</a>
+
+</div>
+
 > [!IMPORTANT]
 > This project is implemented **exclusively for learning purposes and assumes no commercial use**.
 > Neither Yury Fedotov nor organizations he is affiliated with claim any rights to the "Ticket to Ride" trademark,
