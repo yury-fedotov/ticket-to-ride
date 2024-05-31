@@ -13,7 +13,7 @@ class Color(Enum):
     """Collection of colors used in the game."""
     # Those are specific colors to distinguish cars and routes
     PINK = "#FFC0CB"
-    WHITE = "#FFFFFF"
+    WHITE = "#F9F6EE"
     BLUE = "#0000FF"
     YELLOW = "#FFFF00"
     ORANGE = "#FFA500"
