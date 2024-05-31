@@ -83,18 +83,44 @@ class Map:
         )
 
         # Draw edges.
-        edges_by_color = self._get_edges_by_color()
-        for color, edges in edges_by_color.items():
-            nx.draw_networkx_edges(
-                self.graph,
-                pos,
-                edgelist=edges,
-                width=4,
-                alpha=0.7,
-                edge_color=color.value,
-                style="dashed",
-                node_size=node_size,
-            )
+        for pair, edges in self._get_edges_by_neighbor_pair().items():
+            if len(edges) == 1:
+                nx.draw_networkx_edges(
+                    self.graph,
+                    pos,
+                    edgelist=edges,
+                    width=4,
+                    alpha=0.7,
+                    edge_color=edges[0][2]["color"].value,
+                    style="dashed",
+                    node_size=node_size,
+                )
+            elif len(edges) == 2:
+                nx.draw_networkx_edges(
+                    self.graph,
+                    pos,
+                    edgelist=[edges[0],],
+                    width=4,
+                    alpha=0.7,
+                    edge_color=edges[0][2]["color"].value,
+                    style="dashed",
+                    connectionstyle="arc3,rad=0.2",
+                    node_size=node_size,
+                )
+                nx.draw_networkx_edges(
+                    self.graph,
+                    pos,
+                    edgelist=[edges[1],],
+                    width=4,
+                    alpha=0.7,
+                    edge_color=edges[1][2]["color"].value,
+                    style="dashed",
+                    connectionstyle="arc3,rad=-0.2",
+                    node_size=node_size,
+                )
+            else:
+                raise NotImplementedError()
+
         edge_labels = nx.get_edge_attributes(self.graph, name="length")
         nx.draw_networkx_edge_labels(self.graph, pos, edge_labels)
 

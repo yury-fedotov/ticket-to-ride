@@ -8,6 +8,7 @@
 """Tests for map machinery."""
 import pytest
 from ticket_to_ride import City, Map, Route
+from ticket_to_ride.default_components.north_america import default_routes
 
 
 def test_cannot_initialize_with_bridges() -> None:
@@ -21,3 +22,8 @@ def test_cannot_initialize_with_bridges() -> None:
     )
     with pytest.raises(ValueError, match="bridges"):
         Map(routes_with_implicit_bridge)
+
+
+def test_visualize() -> None:
+    game_map = Map(routes=default_routes)
+    game_map.visualize()
