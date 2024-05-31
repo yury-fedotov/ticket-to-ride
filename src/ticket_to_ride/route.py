@@ -8,7 +8,7 @@
 """Route machinery to represent routes between cities."""
 import typing as tp
 
-import networkx
+import networkx as nx
 from pydantic import BaseModel, ConfigDict, Field
 
 from .city import City
@@ -23,7 +23,26 @@ class Route(BaseModel):
     length: int = Field(ge=1, default=1)
     color: Color = Field(default=Color.NEUTRAL)
 
-    def add_as_edge(self: tp.Self, graph: networkx.Graph) -> None:
+    def __eq__(self: tp.Self, other: tp.Any) -> bool:  # noqa: ANN401
+        """Check if two routes are equivalent."""
+        if isinstance(other, Route):
+            conditions = (
+                self.involved_cities == other.involved_cities,
+                self.length == other.length,
+                self.color == other.color,
+            )
+            return all(conditions)
+        return False
+
+    @property
+    def involved_cities(self: tp.Self) -> tp.FrozenSet[City]:
+        """Get cities involved in a route.
+
+        TODO: Move to __post_init__ since value in not changed along lifecycle?
+        """
+        return frozenset(self.cities)
+
+    def add_as_edge(self: tp.Self, graph: nx.Graph) -> None:
         """Add self as an edge on a given graph.
 
         Args:
@@ -33,8 +52,7 @@ class Route(BaseModel):
             None: Modifies the graph passed as an argument in place.
         """
         graph.add_edge(
-            self.cities[0],
-            self.cities[1],
+            *self.cities,
             length=self.length,
             color=self.color,
         )
