@@ -8,7 +8,7 @@
 """Route machinery to represent routes between cities."""
 import typing as tp
 
-import networkx
+import networkx as nx
 from pydantic import BaseModel, ConfigDict, Field
 
 from .city import City
@@ -23,7 +23,7 @@ class Route(BaseModel):
     length: int = Field(ge=1, default=1)
     color: Color = Field(default=Color.NEUTRAL)
 
-    def add_as_edge(self: tp.Self, graph: networkx.Graph) -> None:
+    def add_as_edge(self: tp.Self, graph: nx.Graph) -> None:
         """Add self as an edge on a given graph.
 
         Args:
