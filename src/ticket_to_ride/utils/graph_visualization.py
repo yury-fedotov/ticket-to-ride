@@ -10,7 +10,7 @@ import typing as tp
 
 
 def generate_connectionstyle_iterable(n_edges: int, rad: float = 0.2) -> tp.Tuple[str, ...]:
-    """Generate an iterable of strings compatible with `connectionstyle` arg of `nx.draw_networkx_edges()` function.
+    """Generate an iterable of strings compatible with ``connectionstyle`` arg of ``nx.draw_networkx_edges()`` function.
 
     Assumes that edges this iterable is generated for connect a pair of neighbor nodes.
 
@@ -19,7 +19,7 @@ def generate_connectionstyle_iterable(n_edges: int, rad: float = 0.2) -> tp.Tupl
         rad: Curve radius, where 0 is straight connection and 1 is the extreme curvature.
 
     Returns:
-        A tuple of strings compatible with `connectionstyle` argument of `nx.draw_networkx_edges()` function.
+        A tuple of strings compatible with `connectionstyle` argument of ``nx.draw_networkx_edges()`` function.
     """
     _sign_defining_substrings = frozenset(("", "-"))
 
@@ -27,7 +27,7 @@ def generate_connectionstyle_iterable(n_edges: int, rad: float = 0.2) -> tp.Tupl
         case 0:
             return tuple()
         case 1:
-            return tuple("arc3,rad=0.0")
+            return tuple(("arc3,rad=0.0",))
         case 2:
             return tuple(f"arc3,rad={sign}{rad}" for sign in _sign_defining_substrings)
         case _:

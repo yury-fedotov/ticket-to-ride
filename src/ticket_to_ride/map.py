@@ -15,6 +15,7 @@ import networkx as nx
 from .city import City
 from .color import Color
 from .route import Route
+from .utils import generate_connectionstyle_iterable
 
 _TEdgeTupleWithData = tp.Tuple[City, City, tp.Dict[str, tp.Any]]
 
@@ -98,6 +99,7 @@ class Map:
                     alpha=0.7,
                     edge_color=tuple(edge[2]["color"].value for edge in edges),  # type: ignore[arg-type]
                     style="dashed",
+                    connectionstyle=generate_connectionstyle_iterable(len(edges)),  # type: ignore[arg-type]
                     node_size=node_size,
                 )
             elif len(edges) == 2:  # noqa: PLR2004
@@ -109,7 +111,7 @@ class Map:
                     alpha=0.7,
                     edge_color=tuple(edge[2]["color"].value for edge in edges),  # type: ignore[arg-type]
                     style="dashed",
-                    connectionstyle=tuple(f"arc3,rad={sign}0.2" for sign in ("", "-")),  # type: ignore[arg-type]
+                    connectionstyle=generate_connectionstyle_iterable(len(edges)),  # type: ignore[arg-type]
                     node_size=node_size,
                 )
             else:
