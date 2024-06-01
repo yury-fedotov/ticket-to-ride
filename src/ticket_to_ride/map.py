@@ -7,7 +7,7 @@
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """Map machinery to represent game board."""
 import typing as tp
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -105,8 +105,13 @@ class Map:
         plt.show()
 
     def calculate_centrality(self: tp.Self) -> tp.Dict[City, float]:
-        """Calculate centrality measure of all involved cities."""
-        return nx.betweenness_centrality(self.graph, weight="length")
+        """Calculate centrality measure of all involved cities.
+
+        Returns:
+            A mapping from cities to their centrality measure, sorted from high to low centrality.
+        """
+        centrality = nx.betweenness_centrality(self.graph, weight="length")
+        return dict(Counter(centrality).most_common())
 
     def _get_edges_by_neighbor_pair(self: tp.Self) -> tp.Dict[tp.FrozenSet[City], tp.List[_TEdgeTupleWithData]]:
         """Get a mapping from neighbor pair to a collection of edges connecting it."""
