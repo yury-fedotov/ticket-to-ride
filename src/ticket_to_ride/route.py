@@ -55,4 +55,5 @@ class Route(BaseModel):
             *self.cities,
             length=self.length,
             color=self.color,
+            route_object=self,
         )

@@ -15,6 +15,9 @@ import networkx as nx
 from .city import City
 from .color import Color
 from .route import Route
+from .utils import generate_connectionstyle_iterable
+
+_TEdgeTupleWithData = tp.Tuple[City, City, tp.Dict[str, tp.Any]]
 
 
 class Map:
@@ -81,18 +84,19 @@ class Map:
         )
 
         # Draw edges.
-        edges_by_color = self._get_edges_by_color()
-        for color, edges in edges_by_color.items():
+        for edges_between_pair in self._get_edges_by_neighbor_pair().values():
             nx.draw_networkx_edges(
                 self.graph,
                 pos,
-                edgelist=edges,
+                edgelist=edges_between_pair,
                 width=4,
                 alpha=0.7,
-                edge_color=color.value,
+                edge_color=tuple(edge[2]["color"].value for edge in edges_between_pair),  # type: ignore[arg-type]
                 style="dashed",
+                connectionstyle=generate_connectionstyle_iterable(len(edges_between_pair)),  # type: ignore[arg-type]
                 node_size=node_size,
             )
+
         edge_labels = nx.get_edge_attributes(self.graph, name="length")
         nx.draw_networkx_edge_labels(self.graph, pos, edge_labels)
 
@@ -104,11 +108,26 @@ class Map:
         """Calculate centrality measure of all involved cities."""
         return nx.betweenness_centrality(self.graph, weight="length")
 
-    def _get_edges_by_color(self: tp.Self) -> tp.Dict[Color, tp.List[tp.Any]]:
+    def _get_edges_by_neighbor_pair(self: tp.Self) -> tp.Dict[tp.FrozenSet[City], tp.List[_TEdgeTupleWithData]]:
+        """Get a mapping from neighbor pair to a collection of edges connecting it."""
+        edges_by_pair = defaultdict(list)
+        for (u, v, ddict) in self.graph.edges(data=True):
+            pair = ddict["route_object"].involved_cities
+            edges_by_pair[pair].append((u, v, ddict))
+        return edges_by_pair
+
+    def _get_routes_count_by_neighbor_pair(self: tp.Self) -> tp.Dict[tp.FrozenSet[City], int]:
+        """Get a mapping from neighbor pair to the number of routes connecting them."""
+        return {
+            pair: len(edges)
+            for pair, edges in self._get_edges_by_neighbor_pair().items()
+        }
+
+    def _get_edges_by_color(self: tp.Self) -> tp.Dict[Color, tp.List[_TEdgeTupleWithData]]:
         edges_by_color: tp.Dict[Color, tp.List[tp.Any]] = defaultdict(list)
         for (u, v, ddict) in self.graph.edges(data=True):
             color: Color = ddict["color"]
-            edges_by_color[color].append((u, v))  # TODO: persist all edge info?
+            edges_by_color[color].append((u, v, ddict))
         return edges_by_color  # TODO: make values tuples for safety?
 
     def _check_is_suitable(self: tp.Self) -> None:

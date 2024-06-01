@@ -1,4 +1,6 @@
 site_name: Ticket to Ride
+repo_url: https://github.com/yury-fedotov/ticket-to-ride
+repo_name: yury-fedotov/ticket-to-ride
 plugins:
   - mkdocstrings
 theme:
