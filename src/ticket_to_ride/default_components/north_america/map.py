@@ -10,4 +10,4 @@ from ticket_to_ride import Map
 
 from .routes import default_routes
 
-north_america_map = Map(default_routes)
+north_america_map = Map(routes=default_routes, name="North America")

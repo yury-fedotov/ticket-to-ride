@@ -3,6 +3,9 @@ repo_url: https://github.com/yury-fedotov/ticket-to-ride
 repo_name: yury-fedotov/ticket-to-ride
 plugins:
   - mkdocstrings
+  - mkdocs-jupyter:
+      execute: true
+      allow_errors: false
 theme:
   name: material
   features:

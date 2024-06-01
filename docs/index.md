@@ -20,7 +20,7 @@ A python package for creating and analyzing arbitrary [Ticket to Ride](https://w
 
     Visualize maps and study network properties such as centrality and connectivity
 
-    [:octicons-arrow-right-24: Analysing a map](#)
+    [:octicons-arrow-right-24: Analysing a map](demo.ipynb)
 
 -   :material-graph-outline:{ .lg .middle } __Learn graph theory__
 
