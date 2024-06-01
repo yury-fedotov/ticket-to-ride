@@ -25,5 +25,6 @@ def test_cannot_initialize_with_bridges() -> None:
 
 
 def test_visualize() -> None:
+    """Test that the map visualization API does not fail."""
     game_map = Map(routes=default_routes)
     game_map.visualize()

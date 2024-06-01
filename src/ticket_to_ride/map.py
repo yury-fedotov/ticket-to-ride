@@ -56,6 +56,8 @@ class Map:
 
         Raises:
             NotImplementedError: If some neighbor nodes are connected by more than two routes.
+
+        TODO: refactor to simplify, especially the edge drawing part.
         """
         plt.figure(figsize=(12, 12))
 
@@ -98,11 +100,11 @@ class Map:
                     style="dashed",
                     node_size=node_size,
                 )
-            elif len(edges) == 2:
+            elif len(edges) == 2:  # noqa: PLR2004
                 nx.draw_networkx_edges(
                     self.graph,
                     pos,
-                    edgelist=[edges[0],],
+                    edgelist=[edges[0]],
                     width=4,
                     alpha=0.7,
                     edge_color=edges[0][2]["color"].value,
@@ -113,7 +115,7 @@ class Map:
                 nx.draw_networkx_edges(
                     self.graph,
                     pos,
-                    edgelist=[edges[1],],
+                    edgelist=[edges[1]],
                     width=4,
                     alpha=0.7,
                     edge_color=edges[1][2]["color"].value,
