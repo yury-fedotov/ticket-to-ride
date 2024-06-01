@@ -90,34 +90,17 @@ class Map:
 
         # Draw edges.
         for pair, edges in self._get_edges_by_neighbor_pair().items():
-            if len(edges) == 1:
-                nx.draw_networkx_edges(
-                    self.graph,
-                    pos,
-                    edgelist=edges,
-                    width=4,
-                    alpha=0.7,
-                    edge_color=tuple(edge[2]["color"].value for edge in edges),  # type: ignore[arg-type]
-                    style="dashed",
-                    connectionstyle=generate_connectionstyle_iterable(len(edges)),  # type: ignore[arg-type]
-                    node_size=node_size,
-                )
-            elif len(edges) == 2:  # noqa: PLR2004
-                nx.draw_networkx_edges(
-                    self.graph,
-                    pos,
-                    edgelist=edges,
-                    width=4,
-                    alpha=0.7,
-                    edge_color=tuple(edge[2]["color"].value for edge in edges),  # type: ignore[arg-type]
-                    style="dashed",
-                    connectionstyle=generate_connectionstyle_iterable(len(edges)),  # type: ignore[arg-type]
-                    node_size=node_size,
-                )
-            else:
-                raise NotImplementedError(
-                    f"Neighbors {pair} are connected with more than 2 routes, which is currently not supported.",
-                )
+            nx.draw_networkx_edges(
+                self.graph,
+                pos,
+                edgelist=edges,
+                width=4,
+                alpha=0.7,
+                edge_color=tuple(edge[2]["color"].value for edge in edges),  # type: ignore[arg-type]
+                style="dashed",
+                connectionstyle=generate_connectionstyle_iterable(len(edges)),  # type: ignore[arg-type]
+                node_size=node_size,
+            )
 
         edge_labels = nx.get_edge_attributes(self.graph, name="length")
         nx.draw_networkx_edge_labels(self.graph, pos, edge_labels)
