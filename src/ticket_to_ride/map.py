@@ -7,7 +7,7 @@
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """Map machinery to represent game board."""
 import typing as tp
-from collections import defaultdict
+from collections import Counter, defaultdict
 
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -105,8 +105,24 @@ class Map:
         plt.show()
 
     def calculate_centrality(self: tp.Self) -> tp.Dict[City, float]:
-        """Calculate centrality measure of all involved cities."""
-        return nx.betweenness_centrality(self.graph, weight="length")
+        """Calculate centrality measure of all involved cities.
+
+        Returns:
+            A mapping from cities to their centrality measure, sorted from high to low centrality.
+        """
+        centrality = nx.betweenness_centrality(self.graph, weight="length")
+        return dict(Counter(centrality).most_common())
+
+    def calculate_routes_by_color(self: tp.Self) -> tp.Dict[Color, int]:
+        """Calculate the number of routes by color and return as a mapping from color to number of routes."""
+        routes_by_color = {color: len(edges) for color, edges in self._get_edges_by_color().items()}
+        return dict(Counter(routes_by_color).most_common())
+
+    def calculate_contrast_ratio(self: tp.Self) -> float:
+        """Calculate the contrast ratio of a map which is a fraction of neutral-colored routes."""
+        neutral_routes = self.calculate_routes_by_color()[Color.NEUTRAL]
+        total_routes = self.graph.number_of_edges()
+        return 1 - neutral_routes / total_routes
 
     def _get_edges_by_neighbor_pair(self: tp.Self) -> tp.Dict[tp.FrozenSet[City], tp.List[_TEdgeTupleWithData]]:
         """Get a mapping from neighbor pair to a collection of edges connecting it."""

@@ -31,5 +31,5 @@ parametrize-values-type = "tuple"
 parametrize-values-row-type = "tuple"
 
 [lint.per-file-ignores]
-"__init__.py" = ["F401"] # Allow unused imports to expose objects.
+"__init__.py" = ["F401", "F403"] # Allow unused or undetectable imports to expose objects.
 "__about__.py" = ["D"] # Do not require docstring in this module.
