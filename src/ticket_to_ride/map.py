@@ -53,6 +53,9 @@ class Map:
 
         Returns:
             None, just plt.show()s the map.
+
+        Raises:
+            NotImplementedError: If some neighbor nodes are connected by more than two routes.
         """
         plt.figure(figsize=(12, 12))
 
@@ -119,7 +122,9 @@ class Map:
                     node_size=node_size,
                 )
             else:
-                raise NotImplementedError()
+                raise NotImplementedError(
+                    f"Neighbors {pair} are connected with more than 2 routes, which is currently not supported.",
+                )
 
         edge_labels = nx.get_edge_attributes(self.graph, name="length")
         nx.draw_networkx_edge_labels(self.graph, pos, edge_labels)
