@@ -7,6 +7,7 @@
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
 """Tests for map machinery."""
 import pytest
+
 from ticket_to_ride import City, Map, Route
 from ticket_to_ride.default_components.north_america import default_routes
 

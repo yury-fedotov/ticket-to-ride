@@ -20,6 +20,9 @@ select = [
     "ICN", # Imports convention
 ]
 
+[lint.isort]
+known-first-party = ["ticket_to_ride"]
+
 [lint.pydocstyle]
 convention = "google"
 
