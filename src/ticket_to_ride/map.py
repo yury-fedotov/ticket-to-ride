@@ -54,11 +54,6 @@ class Map:
 
         Returns:
             None, just plt.show()s the map.
-
-        Raises:
-            NotImplementedError: If some neighbor nodes are connected by more than two routes.
-
-        TODO: refactor to simplify, especially the edge drawing part.
         """
         plt.figure(figsize=(12, 12))
 
@@ -89,16 +84,16 @@ class Map:
         )
 
         # Draw edges.
-        for pair, edges in self._get_edges_by_neighbor_pair().items():
+        for edges_between_pair in self._get_edges_by_neighbor_pair().values():
             nx.draw_networkx_edges(
                 self.graph,
                 pos,
-                edgelist=edges,
+                edgelist=edges_between_pair,
                 width=4,
                 alpha=0.7,
-                edge_color=tuple(edge[2]["color"].value for edge in edges),  # type: ignore[arg-type]
+                edge_color=tuple(edge[2]["color"].value for edge in edges_between_pair),  # type: ignore[arg-type]
                 style="dashed",
-                connectionstyle=generate_connectionstyle_iterable(len(edges)),  # type: ignore[arg-type]
+                connectionstyle=generate_connectionstyle_iterable(len(edges_between_pair)),  # type: ignore[arg-type]
                 node_size=node_size,
             )
 
