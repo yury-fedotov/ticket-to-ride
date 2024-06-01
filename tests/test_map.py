@@ -9,7 +9,7 @@
 import pytest
 
 from ticket_to_ride import City, Map, Route
-from ticket_to_ride.default_components.north_america import default_routes
+from ticket_to_ride.default_components import north_america_map
 
 
 def test_cannot_initialize_with_bridges() -> None:
@@ -27,5 +27,4 @@ def test_cannot_initialize_with_bridges() -> None:
 
 def test_visualize() -> None:
     """Test that the map visualization API does not fail."""
-    game_map = Map(routes=default_routes)
-    game_map.visualize()
+    north_america_map.visualize()

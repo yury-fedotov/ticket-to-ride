@@ -5,5 +5,9 @@
 # All rights to the original game and its elements are owned by their respective holders.
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
-"""Provides default component definitions for common game versions."""
-from .north_america import *
+"""Exposes the North America game version map."""
+from ticket_to_ride import Map
+
+from .routes import default_routes
+
+north_america_map = Map(default_routes)
