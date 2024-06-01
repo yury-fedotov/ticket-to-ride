@@ -104,23 +104,12 @@ class Map:
                 nx.draw_networkx_edges(
                     self.graph,
                     pos,
-                    edgelist=[edges[0]],
+                    edgelist=edges,
                     width=4,
                     alpha=0.7,
-                    edge_color=edges[0][2]["color"].value,
+                    edge_color=tuple(edge[2]["color"].value for edge in edges),  # type: ignore[arg-type]
                     style="dashed",
-                    connectionstyle="arc3,rad=0.2",
-                    node_size=node_size,
-                )
-                nx.draw_networkx_edges(
-                    self.graph,
-                    pos,
-                    edgelist=[edges[1]],
-                    width=4,
-                    alpha=0.7,
-                    edge_color=edges[1][2]["color"].value,
-                    style="dashed",
-                    connectionstyle="arc3,rad=-0.2",
+                    connectionstyle=tuple(f"arc3,rad={sign}0.2" for sign in ("", "-")),  # type: ignore[arg-type]
                     node_size=node_size,
                 )
             else:
