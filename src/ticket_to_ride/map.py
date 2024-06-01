@@ -96,7 +96,7 @@ class Map:
                     edgelist=edges,
                     width=4,
                     alpha=0.7,
-                    edge_color=edges[0][2]["color"].value,
+                    edge_color=tuple(edge[2]["color"].value for edge in edges),  # type: ignore[arg-type]
                     style="dashed",
                     node_size=node_size,
                 )
