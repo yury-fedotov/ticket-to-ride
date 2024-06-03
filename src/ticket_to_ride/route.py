@@ -13,6 +13,7 @@ from pydantic import BaseModel, ConfigDict, Field
 
 from .city import City
 from .color import Color
+from .transportation_type import TransportationType
 
 
 class Route(BaseModel):
@@ -22,6 +23,7 @@ class Route(BaseModel):
     cities: tp.Tuple[City, City]
     length: int = Field(ge=1, default=1)
     color: Color = Field(default=Color.NEUTRAL)
+    transportation_type: TransportationType = Field(default=TransportationType.TRAIN)
 
     def __eq__(self: tp.Self, other: tp.Any) -> bool:  # noqa: ANN401
         """Check if two routes are equivalent."""
@@ -30,6 +32,7 @@ class Route(BaseModel):
                 self.involved_cities == other.involved_cities,
                 self.length == other.length,
                 self.color == other.color,
+                self.transportation_type == other.transportation_type,
             )
             return all(conditions)
         return False
@@ -55,5 +58,6 @@ class Route(BaseModel):
             *self.cities,
             length=self.length,
             color=self.color,
+            transportation_type=self.transportation_type,
             route_object=self,
         )

@@ -12,3 +12,4 @@ from .color import Color
 from .map import Map
 from .route import Route
 from .ticket import Ticket
+from .transportation_type import TransportationType
