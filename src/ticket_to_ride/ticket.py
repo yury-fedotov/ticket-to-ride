@@ -8,14 +8,25 @@
 """Ticket machinery to represent destination tickets."""
 import typing as tp
 
-from pydantic import BaseModel, ConfigDict, Field
+from attrs import field, frozen, validators
 
 from .city import City
 
 
-class Ticket(BaseModel):
-    """Ticket machinery to represent destination tickets."""
-    model_config = ConfigDict(validate_default=True, frozen=True)
+@frozen
+class Ticket:
+    """Ticket machinery to represent destination tickets.
 
-    cities: tp.Tuple[City, City]
-    value: int = Field(ge=1, default=1)
+    Constructor arguments:
+        origin: Origin city as defined in the ticket.
+        destination: Destination city as defined in the ticket.
+        face_value: Points value specified on the ticket.
+    """
+    origin: City
+    destination: City
+    face_value: int = field(validator=validators.ge(1))
+
+    @property
+    def objective_cities(self: tp.Self) -> tp.FrozenSet[City]:
+        """Get an unordered pair of cities which a ticket prescribes to connect."""
+        return frozenset((self.origin, self.destination))

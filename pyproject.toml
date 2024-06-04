@@ -25,7 +25,9 @@ classifiers = [
 dependencies = [
   "pydantic~=2.7",
   "networkx~=3.2",
-  "matplotlib",
+  "matplotlib<4.0",
+  "attrs>=21.3",
+  "pandas<3.0",
 ]
 
 [project.optional-dependencies]
@@ -33,6 +35,7 @@ dev = [
   "ruff~=0.4",
   "mypy>=1.0.0",
   "types-networkx~=3.2",
+  "pandas-stubs",
   "pytest",
 ]
 docs = [
