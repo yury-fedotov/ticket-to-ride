@@ -11,7 +11,7 @@ import typing as tp
 import networkx as nx
 import pandas as pd
 
-from ticket_to_ride import Map, Ticket
+from ticket_to_ride import City, Map, Ticket
 
 
 def evaluate_tickets(tickets: tp.Iterable[Ticket], board_map: Map) -> pd.DataFrame:
@@ -23,11 +23,15 @@ def evaluate_tickets(tickets: tp.Iterable[Ticket], board_map: Map) -> pd.DataFra
 
     Returns:
         A pandas DataFrame with one row representing one ticket and columns storing various statistics.
+
+    Notes:
+        Ticket profitability concept is inspired by the article from Rakesh Chintha:
+            https://genielab.github.io/data-stories/ttr_analysis/#
     """
     tickets = tuple(tickets)
     origins = tuple(ticket.origin.name for ticket in tickets)
     destinations = tuple(ticket.destination.name for ticket in tickets)
-    card_points = tuple(ticket.face_value for ticket in tickets)
+    face_value = tuple(ticket.face_value for ticket in tickets)
     shortest_path_length = tuple(
         nx.shortest_path_length(
             G=board_map.graph,
@@ -37,9 +41,39 @@ def evaluate_tickets(tickets: tp.Iterable[Ticket], board_map: Map) -> pd.DataFra
         )
         for ticket in tickets
     )
-    return pd.DataFrame({
+    shortest_path_route_points = tuple(
+        _evaluate_shortest_path_route_points(ticket, board_map)
+        for ticket in tickets
+    )
+    output = pd.DataFrame({
         "origin": origins,
         "destination": destinations,
-        "card_points": card_points,
+        "face_value": face_value,
         "shortest_path_length": shortest_path_length,
+        "shortest_path_route_points": shortest_path_route_points,
     })
+    output["profitability"] = output.eval("(shortest_path_route_points + face_value) / shortest_path_length")
+    return output
+
+
+def _evaluate_shortest_path_route_points(ticket: Ticket, board_map: Map) -> float:
+    all_shortest_paths = nx.all_shortest_paths(
+        G=board_map.graph,
+        source=ticket.origin,
+        target=ticket.destination,
+        weight="length",
+    )
+    point_values_of_path = tuple(
+        _get_points_value_of_path(path, board_map)
+        for path in all_shortest_paths
+    )
+    return max(point_values_of_path)
+
+
+def _get_points_value_of_path(path: tp.Sequence[City], board_map: Map) -> float:
+    pairs = nx.utils.pairwise(path)
+    point_values_by_edge = tuple(
+        tuple(board_map.graph.adj[pair[0]][pair[1]].values())[0]["route_object"].points_value
+        for pair in pairs
+    )
+    return sum(point_values_by_edge)
