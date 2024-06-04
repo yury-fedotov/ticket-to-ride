@@ -5,11 +5,15 @@
 # All rights to the original game and its elements are owned by their respective holders.
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
-"""Python package for analyzing arbitrary Ticket to Ride maps and simulating game sessions."""
-from .car import Car
-from .city import City
-from .color import Color
-from .map import Map
-from .route import Route
-from .ticket import Ticket
-from .transportation_type import TransportationType
+"""Type of route in terms of transportation means."""
+from enum import Enum
+
+
+class TransportationType(Enum):
+    """Transportation type such as train, air, ship.
+
+    Values reflect line styles for plotting as graph edges.
+    """
+    TRAIN = "dashed"
+    SHIP = "dashdot"
+    AIR = "dotted"

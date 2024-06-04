@@ -92,7 +92,9 @@ class Map:
                 width=4,
                 alpha=0.7,
                 edge_color=tuple(edge[2]["color"].value for edge in edges_between_pair),  # type: ignore[arg-type]
-                style="dashed",
+                # For the style parameter below, note that the sequence of strings should be specifically a list
+                # because matplotlib style resolvers treat tuples as numeric parameters for styles.
+                style=[edge[2]["transportation_type"].value for edge in edges_between_pair],  # type: ignore[arg-type]
                 connectionstyle=generate_connectionstyle_iterable(len(edges_between_pair)),  # type: ignore[arg-type]
                 node_size=node_size,
             )
