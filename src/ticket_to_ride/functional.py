@@ -41,13 +41,15 @@ def evaluate_tickets(tickets: tp.Iterable[Ticket], board_map: Map) -> pd.DataFra
         _evaluate_shortest_path_route_points(ticket, board_map)
         for ticket in tickets
     )
-    return pd.DataFrame({
+    output = pd.DataFrame({
         "origin": origins,
         "destination": destinations,
         "face_value": face_value,
         "shortest_path_length": shortest_path_length,
         "shortest_path_route_points": shortest_path_route_points,
     })
+    output["profitability"] = output.eval("(shortest_path_route_points + face_value) / shortest_path_length")
+    return output
 
 
 def _evaluate_shortest_path_route_points(ticket: Ticket, board_map: Map) -> float:
