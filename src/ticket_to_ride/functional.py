@@ -27,7 +27,7 @@ def evaluate_tickets(tickets: tp.Iterable[Ticket], board_map: Map) -> pd.DataFra
     tickets = tuple(tickets)
     origins = tuple(ticket.origin.name for ticket in tickets)
     destinations = tuple(ticket.destination.name for ticket in tickets)
-    card_points = tuple(ticket.face_value for ticket in tickets)
+    face_value = tuple(ticket.face_value for ticket in tickets)
     shortest_path_length = tuple(
         nx.shortest_path_length(
             G=board_map.graph,
@@ -40,6 +40,6 @@ def evaluate_tickets(tickets: tp.Iterable[Ticket], board_map: Map) -> pd.DataFra
     return pd.DataFrame({
         "origin": origins,
         "destination": destinations,
-        "card_points": card_points,
+        "face_value": face_value,
         "shortest_path_length": shortest_path_length,
     })
