@@ -23,6 +23,10 @@ def evaluate_tickets(tickets: tp.Iterable[Ticket], board_map: Map) -> pd.DataFra
 
     Returns:
         A pandas DataFrame with one row representing one ticket and columns storing various statistics.
+
+    Notes:
+        Ticket profitability concept is inspired by the article from Rakesh Chintha:
+            https://genielab.github.io/data-stories/ttr_analysis/#
     """
     tickets = tuple(tickets)
     origins = tuple(ticket.origin.name for ticket in tickets)
