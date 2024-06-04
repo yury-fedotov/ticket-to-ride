@@ -17,7 +17,7 @@ from .city import City
 class Ticket:
     """Ticket machinery to represent destination tickets.
 
-    Constructor arguments:
+    Args:
         origin: Origin city as defined in the ticket.
         destination: Destination city as defined in the ticket.
         face_value: Points value specified on the ticket.
