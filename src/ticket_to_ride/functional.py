@@ -71,7 +71,7 @@ def _evaluate_shortest_path_route_points(ticket: Ticket, board_map: Map) -> floa
 
 
 def _get_points_value_of_path(path: tp.Sequence[City], board_map: Map) -> float:
-    pairs = tuple(path[i: i+2] for i in range(len(path)-1))
+    pairs = nx.utils.pairwise(path)
     point_values_by_edge = tuple(
         tuple(board_map.graph.adj[pair[0]][pair[1]].values())[0]["route_object"].points_value
         for pair in pairs
