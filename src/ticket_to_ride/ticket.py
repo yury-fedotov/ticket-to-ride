@@ -15,7 +15,7 @@ from .city import City
 
 class Ticket(BaseModel):
     """Ticket machinery to represent destination tickets."""
-    model_config = ConfigDict(validate_default=True)
+    model_config = ConfigDict(validate_default=True, frozen=True)
 
     cities: tp.Tuple[City, City]
     value: int = Field(ge=1, default=1)
