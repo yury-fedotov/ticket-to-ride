@@ -15,6 +15,15 @@ from .city import City
 from .color import Color
 from .transportation_type import TransportationType
 
+_ROUTE_POINTS_BY_LENGTH = {
+    1: 1,
+    2: 2,
+    3: 4,
+    4: 7,
+    5: 10,
+    6: 15,
+}
+
 
 class Route(BaseModel):
     """Representation of a route between cities."""
@@ -44,6 +53,11 @@ class Route(BaseModel):
         TODO: Move to __post_init__ since value in not changed along lifecycle?
         """
         return frozenset(self.cities)
+
+    @property
+    def points_value(self: tp.Self) -> float:
+        """Get points value of a route."""
+        return _ROUTE_POINTS_BY_LENGTH[self.length]
 
     def add_as_edge(self: tp.Self, graph: nx.Graph) -> None:
         """Add self as an edge on a given graph.

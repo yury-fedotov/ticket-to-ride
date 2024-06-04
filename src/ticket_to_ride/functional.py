@@ -11,7 +11,7 @@ import typing as tp
 import networkx as nx
 import pandas as pd
 
-from ticket_to_ride import Map, Ticket
+from ticket_to_ride import City, Map, Ticket
 
 
 def evaluate_tickets(tickets: tp.Iterable[Ticket], board_map: Map) -> pd.DataFrame:
@@ -37,9 +37,37 @@ def evaluate_tickets(tickets: tp.Iterable[Ticket], board_map: Map) -> pd.DataFra
         )
         for ticket in tickets
     )
+    shortest_path_route_points = tuple(
+        _evaluate_shortest_path_route_points(ticket, board_map)
+        for ticket in tickets
+    )
     return pd.DataFrame({
         "origin": origins,
         "destination": destinations,
         "face_value": face_value,
         "shortest_path_length": shortest_path_length,
+        "shortest_path_route_points": shortest_path_route_points,
     })
+
+
+def _evaluate_shortest_path_route_points(ticket: Ticket, board_map: Map) -> float:
+    all_shortest_paths = nx.all_shortest_paths(
+        G=board_map.graph,
+        source=ticket.origin,
+        target=ticket.destination,
+        weight="length",
+    )
+    point_values_of_path = tuple(
+        _get_points_value_of_path(path, board_map)
+        for path in all_shortest_paths
+    )
+    return max(point_values_of_path)
+
+
+def _get_points_value_of_path(path: tp.Sequence[City], board_map: Map) -> float:
+    pairs = tuple(path[i: i+2] for i in range(len(path)-1))
+    point_values_by_edge = tuple(
+        tuple(board_map.graph.adj[pair[0]][pair[1]].values())[0]["route_object"].points_value
+        for pair in pairs
+    )
+    return sum(point_values_by_edge)
