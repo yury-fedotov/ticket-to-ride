@@ -17,6 +17,7 @@ _CITY_NAMES = frozenset((
     "Stockholm",
     "Petrograd",
     "Moskva",
+    "Riga",
     "Kharkov",
     "Rostov",
     "Sochi",
