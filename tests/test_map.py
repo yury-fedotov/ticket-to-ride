@@ -9,7 +9,7 @@
 import pytest
 
 from ticket_to_ride import City, Map, Route
-from ticket_to_ride.default_components import north_america_map
+from ticket_to_ride.default_components import europe_map, north_america_map
 
 
 def test_cannot_initialize_with_bridges() -> None:
@@ -25,6 +25,7 @@ def test_cannot_initialize_with_bridges() -> None:
         Map(routes_with_implicit_bridge)
 
 
-def test_visualize() -> None:
+@pytest.mark.parametrize("board_map", (europe_map, north_america_map))
+def test_visualize(board_map: Map) -> None:
     """Test that the map visualization API does not fail."""
-    north_america_map.visualize()
+    board_map.visualize()
