@@ -91,7 +91,8 @@ class Map:
                 edgelist=edges_between_pair,
                 width=4,
                 alpha=0.7,
-                edge_color=tuple(edge[2]["color"].value for edge in edges_between_pair),  # type: ignore[arg-type]
+                # edge_color, if a sequence, should be a list rather than a tuple due to a bug in nx or plt package
+                edge_color=[edge[2]["color"].value for edge in edges_between_pair],  # type: ignore[arg-type]
                 # For the style parameter below, note that the sequence of strings should be specifically a list
                 # because matplotlib style resolvers treat tuples as numeric parameters for styles.
                 style=[edge[2]["transportation_type"].value for edge in edges_between_pair],  # type: ignore[arg-type]
