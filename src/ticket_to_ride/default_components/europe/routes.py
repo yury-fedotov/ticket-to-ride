@@ -112,5 +112,4 @@ default_routes = (
     Route(cities=(default_cities["Angora"], default_cities["Erzurum"]), length=3, color=Color.BLACK),
     Route(cities=(default_cities["Erzurum"], default_cities["Sevastopol"]), length=4, color=Color.NEUTRAL),
     Route(cities=(default_cities["Erzurum"], default_cities["Sochi"]), length=3, color=Color.RED),
-    # TODO: complete this list, items above are correct but the list is not finished.
 )
