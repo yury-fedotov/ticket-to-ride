@@ -94,6 +94,8 @@ default_routes = (
     Route(cities=(default_cities["Smolensk"], default_cities["Wilno"]), length=3, color=Color.YELLOW),
     Route(cities=(default_cities["Smolensk"], default_cities["Kyiv"]), length=3, color=Color.RED),
     Route(cities=(default_cities["Wilno"], default_cities["Kyiv"]), length=2, color=Color.NEUTRAL),
+    Route(cities=(default_cities["Wilno"], default_cities["Warszawa"]), length=3, color=Color.RED),
+    Route(cities=(default_cities["Wilno"], default_cities["Riga"]), length=4, color=Color.GREEN),
     Route(cities=(default_cities["Moskva"], default_cities["Kharkov"]), length=4, color=Color.NEUTRAL),
     Route(cities=(default_cities["Kyiv"], default_cities["Kharkov"]), length=4, color=Color.NEUTRAL),
     Route(cities=(default_cities["Kharkov"], default_cities["Rostov"]), length=2, color=Color.GREEN),
