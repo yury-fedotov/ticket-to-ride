@@ -12,7 +12,7 @@ _CITY_NAMES = frozenset((
     "Reykjavik",
     "Murmansk",
     "Tiksi",
-    "Yakustsk",
+    "Yakutsk",
     "Petropavlovsk",
     "Tokyo",
     "Beijing",

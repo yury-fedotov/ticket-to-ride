@@ -8,3 +8,4 @@
 """Provides default component definitions for common game versions."""
 from .europe import *
 from .north_america import *
+from .rails_and_sails import *
