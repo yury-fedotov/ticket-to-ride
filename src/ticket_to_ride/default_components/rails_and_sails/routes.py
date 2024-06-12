@@ -379,4 +379,80 @@ default_routes = (
         cities=(default_cities["Buenos Aires"], default_cities["Valparaiso"]),
         length=3, color=Color.GREEN, transportation_type=TransportationType.SHIP,
     ),
+    Route(
+        cities=(default_cities["Caracas"], default_cities["Mexico"]),
+        length=3, color=Color.PINK, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Caracas"], default_cities["Mexico"]),
+        length=3, color=Color.YELLOW, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Caracas"], default_cities["Miami"]),
+        length=2, color=Color.WHITE, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Mexico"], default_cities["Los Angeles"]),
+        length=2, color=Color.WHITE, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Mexico"], default_cities["Los Angeles"]),
+        length=2, color=Color.YELLOW, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Miami"], default_cities["New York"]),
+        length=2, color=Color.WHITE, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Miami"], default_cities["Casablanca"]),
+        length=7, color=Color.GREEN, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Los Angeles"], default_cities["New York"]),
+        length=4, color=Color.PINK, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Los Angeles"], default_cities["New York"]),
+        length=4, color=Color.BLACK, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Edinburgh"], default_cities["New York"]),
+        length=8, color=Color.RED, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Edinburgh"], default_cities["New York"]),
+        length=8, color=Color.YELLOW, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Reykjavik"], default_cities["New York"]),
+        length=7, color=Color.YELLOW, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Winnipeg"], default_cities["New York"]),
+        length=2, color=Color.GREEN, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Winnipeg"], default_cities["Los Angeles"]),
+        length=3, color=Color.NEUTRAL, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Winnipeg"], default_cities["Cambridge Bay"]),
+        length=4, color=Color.BLACK, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Los Angeles"], default_cities["Vancouver"]),
+        length=1, color=Color.GREEN, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Los Angeles"], default_cities["Vancouver"]),
+        length=1, color=Color.RED, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Winnipeg"], default_cities["Vancouver"]),
+        length=2, color=Color.YELLOW, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Reykjavik"], default_cities["Cambridge Bay"]),
+        length=6, color=Color.WHITE, transportation_type=TransportationType.SHIP,
+    ),
 )
