@@ -319,4 +319,64 @@ default_routes = (
         cities=(default_cities["Darwin"], default_cities["Post Moresby"]),
         length=1, color=Color.RED, transportation_type=TransportationType.SHIP,
     ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["Buenos Aires"]),
+        length=7, color=Color.BLUE, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["Buenos Aires"]),
+        length=7, color=Color.YELLOW, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["Rio de Janeiro"]),
+        length=6, color=Color.BLACK, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["Rio de Janeiro"]),
+        length=6, color=Color.WHITE, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Buenos Aires"], default_cities["Rio de Janeiro"]),
+        length=1, color=Color.GREEN, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Buenos Aires"], default_cities["Rio de Janeiro"]),
+        length=1, color=Color.RED, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Luanda"], default_cities["Rio de Janeiro"]),
+        length=6, color=Color.RED, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Mexico"], default_cities["Rio de Janeiro"]),
+        length=4, color=Color.GREEN, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Mexico"], default_cities["Rio de Janeiro"]),
+        length=4, color=Color.BLACK, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Mexico"], default_cities["Lagos"]),
+        length=7, color=Color.RED, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Mexico"], default_cities["Lima"]),
+        length=2, color=Color.YELLOW, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Mexico"], default_cities["Lima"]),
+        length=2, color=Color.NEUTRAL, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Lima"], default_cities["Valparaiso"]),
+        length=2, color=Color.NEUTRAL, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Lima"], default_cities["Valparaiso"]),
+        length=2, color=Color.RED, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Buenos Aires"], default_cities["Valparaiso"]),
+        length=3, color=Color.GREEN, transportation_type=TransportationType.SHIP,
+    ),
 )
