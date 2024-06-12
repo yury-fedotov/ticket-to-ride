@@ -5,7 +5,9 @@
 # All rights to the original game and its elements are owned by their respective holders.
 # For more information about the game, please visit
 # the official Days of Wonder website: https://www.daysofwonder.com/ticket-to-ride/.
-"""Provides default component definitions for common game versions."""
-from .europe import *
-from .north_america import *
-from .rails_and_sails import *
+"""Exposes the worldwide Rails & Sails game version map."""
+from ticket_to_ride import Map
+
+from .routes import default_routes
+
+rails_and_sails_map = Map(routes=default_routes, name="Rails and Sails World")
