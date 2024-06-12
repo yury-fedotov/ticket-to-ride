@@ -187,4 +187,88 @@ default_routes = (
         cities=(default_cities["Reykjavik"], default_cities["Murmansk"]),
         length=4, color=Color.GREEN, transportation_type=TransportationType.SHIP,
     ),
+    Route(
+        cities=(default_cities["Marseille"], default_cities["Casablanca"]),
+        length=1, color=Color.NEUTRAL, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Casablanca"], default_cities["Lagos"]),
+        length=4, color=Color.NEUTRAL, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Lagos"], default_cities["Luanda"]),
+        length=1, color=Color.YELLOW, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Lagos"], default_cities["Luanda"]),
+        length=1, color=Color.PINK, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["Luanda"]),
+        length=2, color=Color.NEUTRAL, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["Toamasina"]),
+        length=3, color=Color.NEUTRAL, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["Dar Es Salaam"]),
+        length=3, color=Color.GREEN, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["Dar Es Salaam"]),
+        length=3, color=Color.BLUE, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Dar Es Salaam"], default_cities["Toamasina"]),
+        length=1, color=Color.YELLOW, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Dar Es Salaam"], default_cities["Jakarta"]),
+        length=7, color=Color.NEUTRAL, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Dar Es Salaam"], default_cities["Jakarta"]),
+        length=7, color=Color.GREEN, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Dar Es Salaam"], default_cities["Luanda"]),
+        length=2, color=Color.NEUTRAL, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Dar Es Salaam"], default_cities["Djubouti"]),
+        length=1, color=Color.RED, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Dar Es Salaam"], default_cities["Djubouti"]),
+        length=1, color=Color.BLACK, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Dar Es Salaam"], default_cities["Mumbai"]),
+        length=4, color=Color.WHITE, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Djubouti"], default_cities["Al-Zabira"]),
+        length=2, color=Color.YELLOW, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Djubouti"], default_cities["Al-Zabira"]),
+        length=2, color=Color.RED, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Al-Zabira"], default_cities["Casablanca"]),
+        length=3, color=Color.NEUTRAL, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Al-Zabira"], default_cities["Athina"]),
+        length=1, color=Color.BLUE, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Al-Zabira"], default_cities["Tehran"]),
+        length=1, color=Color.YELLOW, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Al-Zabira"], default_cities["Tehran"]),
+        length=1, color=Color.BLACK, transportation_type=TransportationType.TRAIN,
+    ),
 )
