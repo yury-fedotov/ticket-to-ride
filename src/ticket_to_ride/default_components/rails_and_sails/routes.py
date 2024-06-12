@@ -348,23 +348,23 @@ default_routes = (
         length=6, color=Color.RED, transportation_type=TransportationType.SHIP,
     ),
     Route(
-        cities=(default_cities["Mexico"], default_cities["Rio de Janeiro"]),
+        cities=(default_cities["Caracas"], default_cities["Rio de Janeiro"]),
         length=4, color=Color.GREEN, transportation_type=TransportationType.TRAIN,
     ),
     Route(
-        cities=(default_cities["Mexico"], default_cities["Rio de Janeiro"]),
+        cities=(default_cities["Caracas"], default_cities["Rio de Janeiro"]),
         length=4, color=Color.BLACK, transportation_type=TransportationType.TRAIN,
     ),
     Route(
-        cities=(default_cities["Mexico"], default_cities["Lagos"]),
+        cities=(default_cities["Caracas"], default_cities["Lagos"]),
         length=7, color=Color.RED, transportation_type=TransportationType.SHIP,
     ),
     Route(
-        cities=(default_cities["Mexico"], default_cities["Lima"]),
+        cities=(default_cities["Caracas"], default_cities["Lima"]),
         length=2, color=Color.YELLOW, transportation_type=TransportationType.TRAIN,
     ),
     Route(
-        cities=(default_cities["Mexico"], default_cities["Lima"]),
+        cities=(default_cities["Caracas"], default_cities["Lima"]),
         length=2, color=Color.NEUTRAL, transportation_type=TransportationType.TRAIN,
     ),
     Route(
