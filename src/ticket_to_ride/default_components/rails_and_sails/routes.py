@@ -271,4 +271,52 @@ default_routes = (
         cities=(default_cities["Al-Zabira"], default_cities["Tehran"]),
         length=1, color=Color.BLACK, transportation_type=TransportationType.TRAIN,
     ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["North Pole"]),
+        length=5, color=Color.RED, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Cape Town"], default_cities["North Pole"]),
+        length=5, color=Color.GREEN, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["North Pole"], default_cities["Perth"]),
+        length=5, color=Color.YELLOW, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["North Pole"], default_cities["Perth"]),
+        length=5, color=Color.PINK, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Perth"], default_cities["Jakarta"]),
+        length=3, color=Color.NEUTRAL, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Perth"], default_cities["Darwin"]),
+        length=2, color=Color.BLUE, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Jakarta"], default_cities["Darwin"]),
+        length=2, color=Color.BLACK, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Sydney"], default_cities["Darwin"]),
+        length=2, color=Color.GREEN, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Sydney"], default_cities["Perth"]),
+        length=2, color=Color.YELLOW, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Sydney"], default_cities["Perth"]),
+        length=2, color=Color.WHITE, transportation_type=TransportationType.TRAIN,
+    ),
+    Route(
+        cities=(default_cities["Sydney"], default_cities["Post Moresby"]),
+        length=3, color=Color.YELLOW, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Darwin"], default_cities["Post Moresby"]),
+        length=1, color=Color.RED, transportation_type=TransportationType.SHIP,
+    ),
 )
