@@ -179,4 +179,12 @@ default_routes = (
         cities=(default_cities["Marseille"], default_cities["Edinburgh"]),
         length=1, color=Color.GREEN, transportation_type=TransportationType.SHIP,
     ),
+    Route(
+        cities=(default_cities["Reykjavik"], default_cities["Edinburgh"]),
+        length=2, color=Color.NEUTRAL, transportation_type=TransportationType.SHIP,
+    ),
+    Route(
+        cities=(default_cities["Reykjavik"], default_cities["Murmansk"]),
+        length=4, color=Color.GREEN, transportation_type=TransportationType.SHIP,
+    ),
 )
