@@ -28,7 +28,7 @@ A python package for creating and analyzing arbitrary [Ticket to Ride](https://w
 
     Played Ticket to Ride but haven't heard of graph theory? Learn its basic in this entertaining context
 
-    [:octicons-arrow-right-24: Graph theory in Ticket to Ride](#)
+    [:octicons-arrow-right-24: Graph theory in Ticket to Ride](applied_graph_theory.md)
 
 -   :octicons-law-24:{ .lg .middle } __No commercial use__
 
